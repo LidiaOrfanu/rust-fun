@@ -15,4 +15,12 @@ fn main() {
             break;
         }
     }
+    let pi: f64 = 3.141592;
+    println!("Hello, {0} is {1:.3}", "pi", pi);
+    println!("{}'{pi:.*}' has 2 fractional digits", "Hello", 2,pi= 3.124);
+    println!("{}'{pi:.*}' has 3 fractional digits", "Hello", 3,pi= 3.124);
+    println!("{}'{pi:.*}' has 3 characters", "Hello", 3,pi= "3.124");
+    // assert_eq!(format!("Hello {{}}"), "Hello{}");
+    assert_eq!(format!("{{ Hello"), "{ Hello");
+
 }
