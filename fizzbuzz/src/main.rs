@@ -1,16 +1,27 @@
-fn fizzbuzz(num: u8) {
+use colored::Colorize;
+use std::io;
+
+pub fn fizzbuzz(num: u8) {
     for i in 1..=num {
-        if i % 3 == 0 && i % 5 == 0 {
-            println!("FizzBuzz");
-        } else if i % 3 == 0 {
-            println!("Fizz");
-        } else if i % 5 == 0 {
-            println!("Buzz");
-        } else {
-            println!("{i}");
-        }
+        match (i % 3 == 0, i % 5 == 0) {
+            (true, true) => println!("FizzBuzz"),
+            (true, false) => println!("Fizz"),
+            (false, true) => println!("Buzz"),
+            (false, false) => println!("{i}"),
+        };
     }
 }
+
 fn main() {
-    fizzbuzz(20);
+    println!("{}", "Please provide a number: 0 - 255".yellow());
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap();
+    let input: u8 = match input.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("{}", "Only positive numbers: 0 - 255!".red());
+            return;
+        }
+    };
+    fizzbuzz(input);
 }
