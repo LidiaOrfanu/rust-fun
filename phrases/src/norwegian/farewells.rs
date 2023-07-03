@@ -1,3 +1,3 @@
-fn goodbye() -> String {
+pub fn goodbye() -> String {
     "Ha det!".to_string()
 }
