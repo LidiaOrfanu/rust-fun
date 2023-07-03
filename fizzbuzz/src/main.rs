@@ -3,17 +3,6 @@ use colored::Colorize;
 use std::io;
 use fizzbuzz::fizzbuzzfolder::fizzbuzzfile;
 
-// pub fn fizzbuzz(num: u8) {
-//     for i in 1..=num {
-//         match (i % 3 == 0, i % 5 == 0) {
-//             (true, true) => println!("FizzBuzz"),
-//             (true, false) => println!("Fizz"),
-//             (false, true) => println!("Buzz"),
-//             (false, false) => println!("{i}"),
-//         };
-//     }
-// }
-
 fn main() {
     println!("{}", "Please provide a number: 0 - 255".yellow());
     let mut input = String::new();

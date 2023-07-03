@@ -3,13 +3,28 @@ pub mod fizzbuzzfolder;
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
-    fn it_does_not_work() {
-        assert_eq!(4, fizzbuzzfolder::fizzbuzzfile::add_one_test(2));
+    fn fizzbuzz_prints_number_if_not_divisible_by_3_or_5() {
+        let expected = vec!["1"];
+        assert_eq!(expected, fizzbuzzfolder::fizzbuzzfile::fizzbuzz(1));
     }
 
     #[test]
-    fn it_works() {
-        assert_eq!(3, fizzbuzzfolder::fizzbuzzfile::add_one_test(2));
+    fn fizz_works() {
+        let expected = vec!["1", "2", "Fizz"];
+        assert_eq!(expected, fizzbuzzfolder::fizzbuzzfile::fizzbuzz(3));
+    }
+
+    #[test]
+    fn buzz_works() {
+        let expected : Vec<String> = vec!["1".to_string(), "2".to_string(), "Fizz".to_string(), "4".to_string(), "Buzz".to_string()];
+        assert_eq!(expected, fizzbuzzfolder::fizzbuzzfile::fizzbuzz(5));
+    }
+
+    #[test]
+    #[should_panic]
+    fn invalid_input() {
+        fizzbuzzfolder::fizzbuzzfile::fizzbuzz(121);
     }
 }
