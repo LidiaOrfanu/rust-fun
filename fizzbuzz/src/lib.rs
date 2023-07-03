@@ -24,7 +24,13 @@ mod tests {
 
     #[test]
     #[should_panic]
-    fn invalid_input() {
+    fn input_greater_than_100_considered_invalid() {
         fizzbuzzfolder::fizzbuzzfile::fizzbuzz(121);
+    }
+
+    #[test]
+    #[should_panic]
+    fn input_smaller_than_1_considered_invalid() {
+        fizzbuzzfolder::fizzbuzzfile::fizzbuzz(0);
     }
 }
