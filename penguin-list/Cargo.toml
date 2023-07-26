@@ -1,0 +1,12 @@
+[package]
+name = "penguin-list"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15.0"
+reqwest = "0.11.18"
+sqlx = { version = "0.7.1", features = ["postgres", "runtime-tokio-rustls"] }
+tokio = { version = "1.29.1", features = ["full"] }
