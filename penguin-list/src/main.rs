@@ -3,6 +3,14 @@
 use dotenv::dotenv;
 use std::env;
 use reqwest::header::{HeaderMap, AUTHORIZATION};
+use serde::Deserialize;
+#[derive(Debug, Deserialize)]
+struct Penguin {
+    id: i32,
+    name: String,
+    species: String,
+    age: i32
+}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -20,5 +28,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .send()
         .await?;
     println!("{:#?}", resp);
+    
+    let resp_json:Vec<Penguin>= resp.json::<Vec<Penguin>>().await?;
+    println!("Json resp: {:#?}", resp_json);
     Ok(())
 }
